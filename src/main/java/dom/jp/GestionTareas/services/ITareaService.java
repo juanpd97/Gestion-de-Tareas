@@ -10,6 +10,5 @@ public interface ITareaService {
     public void eliminarTarea(int id);
     public Tarea buscarTareaPorId(int id);
     public List<Tarea> buscarTodasLasTareas();
-    public void editarTarea();
     
 }

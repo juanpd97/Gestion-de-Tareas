@@ -5,40 +5,39 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import dom.jp.GestionTareas.models.Tarea;
+import dom.jp.GestionTareas.repositories.tareaRepository;
 
 @Service
 public class TareaServiceImpl implements ITareaService{
 
+    private final tareaRepository repo;
+    
+    public TareaServiceImpl(tareaRepository repo) {
+        this.repo = repo;
+    }
+
+
     @Override
     public void guardarTarea(Tarea unaTarea) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'guardarTarea'");
+        repo.save(unaTarea);
     }
 
     @Override
     public void eliminarTarea(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eliminarTarea'");
+        repo.deleteById(id);
     }
 
     @Override
     public Tarea buscarTareaPorId(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarTareaPorId'");
+       Tarea tarea = repo.findById(id).orElse(null);
+       return tarea;
     }
 
     @Override
     public List<Tarea> buscarTodasLasTareas() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarTodasLasTareas'");
+        List<Tarea> listaTareas = repo.findAll();
+        return listaTareas;
     }
-
-    @Override
-    public void editarTarea() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'editarTarea'");
-    }
-
 
 
 }
