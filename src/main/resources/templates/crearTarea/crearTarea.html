@@ -1,16 +1,28 @@
-<form>
+<form th:action="@{/tarea/crear}" th:object="${nuevaTarea}" method="post">
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <label for="titulo" class="form-label">Titulo</label>
+    <input type="text" class="form-control" id="titulo" th:field="*{titulo}">
+      </div>
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripcion</label>
+      <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}">
     </div>
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+        <label for="estado" class="form-label">Estado</label>
+        <select class="form-control" id="estado" th:field="*{estado}">
+            <option value="Por hacer" >Por hacer</option>
+            <option value="En progreso" >En progreso</option>
+            <option value="Completada" >Completada</option>
+        </select>
     </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    <div class="mb-3"></div>
+        <label for="fechaInicio" class="form-label">Fecha de Inicio</label>
+        <input type="date" class="form-control" id="fechaInicio" th:field="*{fechaCreacion}">
     </div>
+    <div class="mb-3">
+        <label for="fechaVencimiento" class="form-label">Fecha de vencimiento</label>
+        <input type="date" class="form-control" id="fechaVencimiento" th:field="*{fechaVencimiento}">
+    </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
