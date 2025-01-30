@@ -1,3 +1,4 @@
+// filepath: /c:/Users/juanp/OneDrive/Documentos/Gestion-de-Tareas/src/main/java/dom/jp/GestionTareas/models/Tarea.java
 package dom.jp.GestionTareas.models;
 
 import java.time.LocalDate;
@@ -23,41 +24,52 @@ public class Tarea {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaVencimiento;
 
-
+    // Getters and Setters
     public int getId() {
-        return this.id;
+        return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getTitulo() {
         return titulo;
     }
+
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
     public String getDescripcion() {
         return descripcion;
     }
+
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
     public String getEstado() {
         return estado;
     }
+
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
     public LocalDate getFechaCreacion() {
         return fechaCreacion;
     }
+
     public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
+
     public LocalDate getFechaVencimiento() {
         return fechaVencimiento;
     }
+
     public void setFechaVencimiento(LocalDate fechaVencimiento) {
         this.fechaVencimiento = fechaVencimiento;
     }
-
-    
-
 }

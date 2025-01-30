@@ -1,3 +1,4 @@
+// filepath: /c:/Users/juanp/OneDrive/Documentos/Gestion-de-Tareas/src/main/java/dom/jp/GestionTareas/services/TareaServiceImpl.java
 package dom.jp.GestionTareas.services;
 
 import java.util.List;
@@ -8,18 +9,16 @@ import dom.jp.GestionTareas.models.Tarea;
 import dom.jp.GestionTareas.repositories.tareaRepository;
 
 @Service
-public class TareaServiceImpl implements ITareaService{
+public class TareaServiceImpl implements ITareaService {
 
     private final tareaRepository repo;
-    
+
     public TareaServiceImpl(tareaRepository repo) {
         this.repo = repo;
     }
 
-
     @Override
     public void guardarTarea(Tarea unaTarea) {
-        
         repo.save(unaTarea);
     }
 
@@ -30,32 +29,26 @@ public class TareaServiceImpl implements ITareaService{
 
     @Override
     public Tarea buscarTareaPorId(int id) {
-       Tarea tarea = repo.findById(id).orElse(null);
-       return tarea;
+        return repo.findById(id).orElse(null);
     }
 
     @Override
     public List<Tarea> buscarTodasLasTareas() {
-        List<Tarea> listaTareas = repo.findAll();
-        return listaTareas;
+        return repo.findAll();
     }
-
 
     @Override
     public void editarTarea(Tarea tarea) {
-       Tarea editTarea = repo.findById(tarea.getId()).orElse(null);
-       
-       if (editTarea != null) {
-           editTarea.setDescripcion(tarea.getDescripcion());
-           editTarea.setEstado(tarea.getEstado());
-           editTarea.setFechaCreacion(tarea.getFechaCreacion());
-           editTarea.setFechaVencimiento(tarea.getFechaVencimiento());
-           editTarea.setTitulo(tarea.getTitulo());
+        Tarea editTarea = repo.findById(tarea.getId()).orElse(null);
 
-           repo.save(editTarea);
-       }
+        if (editTarea != null) {
+            editTarea.setDescripcion(tarea.getDescripcion());
+            editTarea.setEstado(tarea.getEstado());
+            editTarea.setFechaCreacion(tarea.getFechaCreacion());
+            editTarea.setFechaVencimiento(tarea.getFechaVencimiento());
+            editTarea.setTitulo(tarea.getTitulo());
+
+            repo.save(editTarea);
+        }
     }
-
-
-
 }

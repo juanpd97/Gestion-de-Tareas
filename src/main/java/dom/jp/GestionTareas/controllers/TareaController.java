@@ -61,13 +61,13 @@ public class TareaController {
         return "editarTarea";
     }
 
-    @PostMapping("/tarea/editar")
-    public String editarTarea(@ModelAttribute Tarea tarea) {
-        System.out.println("-------**********-------- ID de la tarea a editar: " + tarea.getId());
-        repo.editarTarea(tarea);        
-        return "redirect:/";
-    }
-    
+ // filepath: /C:/Users/juanp/OneDrive/Documentos/Gestion-de-Tareas/src/main/java/dom/jp/GestionTareas/controllers/TareaController.java
+@PostMapping("/tarea/editar")
+public String editarTarea(@ModelAttribute Tarea tarea) {
+    System.out.println("-------**********-------- ID de la tarea a editar: " + tarea.getId());
+    repo.editarTarea(tarea);
+    return "redirect:/";
+}
 
 
 }
