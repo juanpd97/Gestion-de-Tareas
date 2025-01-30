@@ -19,6 +19,7 @@ public class TareaServiceImpl implements ITareaService{
 
     @Override
     public void guardarTarea(Tarea unaTarea) {
+        
         repo.save(unaTarea);
     }
 
@@ -38,6 +39,23 @@ public class TareaServiceImpl implements ITareaService{
         List<Tarea> listaTareas = repo.findAll();
         return listaTareas;
     }
+
+
+    @Override
+    public void editarTarea(Tarea tarea) {
+       Tarea editTarea = repo.findById(tarea.getId()).orElse(null);
+       
+       if (editTarea != null) {
+           editTarea.setDescripcion(tarea.getDescripcion());
+           editTarea.setEstado(tarea.getEstado());
+           editTarea.setFechaCreacion(tarea.getFechaCreacion());
+           editTarea.setFechaVencimiento(tarea.getFechaVencimiento());
+           editTarea.setTitulo(tarea.getTitulo());
+
+           repo.save(editTarea);
+       }
+    }
+
 
 
 }

@@ -1,0 +1,33 @@
+<div th:insert="./layout/head.html"></div>
+<div th:insert="./layout/header.html"></div>
+
+<form th:action="@{/tarea/editar}" th:object="${tarea}" method="post" class="container mt-5"> 
+    <input type="hidden" th:field="*{id}">
+    
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Titulo</label>
+        <input type="text" class="form-control" id="titulo" th:field="*{titulo}" >
+    </div>
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripcion</label>
+        <textarea class="form-control" id="descripcion" th:field="*{descripcion}" rows="3" ></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="estado" class="form-label">Estado</label>
+        <select class="form-control" id="estado" th:field="*{estado}" >
+            <option value="Por hacer">Por hacer</option>
+            <option value="En progreso">En progreso</option>
+            <option value="Completada">Completada</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="fechaInicio" class="form-label">Fecha de Inicio</label>
+        <input type="date" class="form-control" id="fechaInicio" th:field="*{fechaCreacion}">
+    </div>
+    <div class="mb-3">
+        <label for="fechaVencimiento" class="form-label">Fecha de vencimiento</label>
+        <input type="date" class="form-control" id="fechaVencimiento" th:field="*{fechaVencimiento}">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

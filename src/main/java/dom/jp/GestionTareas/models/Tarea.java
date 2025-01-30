@@ -25,7 +25,7 @@ public class Tarea {
 
 
     public int getId() {
-        return id;
+        return this.id;
     }
     public String getTitulo() {
         return titulo;

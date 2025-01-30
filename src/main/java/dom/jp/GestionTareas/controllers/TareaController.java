@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import dom.jp.GestionTareas.models.Tarea;
 import dom.jp.GestionTareas.services.TareaServiceImpl;
@@ -45,8 +45,29 @@ public class TareaController {
         repo.guardarTarea(unaTarea);
         return "redirect:/";
     }
+
+    @GetMapping("/tarea/eliminar/{id}")
+    public String eliminarTarea(@PathVariable int id) {
+        repo.eliminarTarea(id);
+        return "redirect:/";
+    }
+    
     
 
+    @GetMapping("/tarea/editar/{id}")
+    public String editarTareaView(@PathVariable int id, Model model) {
+        Tarea tarea = repo.buscarTareaPorId(id);
+        model.addAttribute("tarea", tarea);
+        return "editarTarea";
+    }
+
+    @PostMapping("/tarea/editar")
+    public String editarTarea(@ModelAttribute Tarea tarea) {
+        System.out.println("-------**********-------- ID de la tarea a editar: " + tarea.getId());
+        repo.editarTarea(tarea);        
+        return "redirect:/";
+    }
+    
 
 
 }

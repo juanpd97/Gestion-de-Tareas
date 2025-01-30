@@ -1,0 +1,7 @@
+-validaciónes
+ej que la fehca de vencimiento sea después que la de inicio
+
+-hacer que si la tarea no tiene un campo se muestre un "-"
+-en la lista de tarea crear el link para los métodos editar y eliminar
+-poner opciones de filtrado y búsqueda de tareas
+-paginas en la lista de tarea

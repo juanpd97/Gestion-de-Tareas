@@ -21,7 +21,8 @@
                 <td th:text="${tarea.fechaVencimiento}"></td>
                 <td th:text="${tarea.estado}"></td>
                 <td>
-                    <p>editar/eliminar</p>
+                    <a th:href="@{'/tarea/editar/' + ${tarea.id}}">editar</a>
+                    <a th:href="@{'/tarea/eliminar/' + ${tarea.id}}">eliminar</a>
                 </td>
             </tr>
             </tbody>
