@@ -1,21 +1,21 @@
-<form th:action="@{/tarea/crear}" th:object="${nuevaTarea}" method="post">
+<form th:action="@{/tarea/crear}" th:object="${nuevaTarea}" method="post" class="container mt-5">
     <div class="mb-3">
-      <label for="titulo" class="form-label">Titulo</label>
-    <input type="text" class="form-control" id="titulo" th:field="*{titulo}">
-      </div>
+        <label for="titulo" class="form-label">Titulo</label>
+        <input type="text" class="form-control" id="titulo" th:field="*{titulo}" placeholder="Ingrese el título de la tarea">
+    </div>
     <div class="mb-3">
-      <label for="descripcion" class="form-label">Descripcion</label>
-      <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}">
+        <label for="descripcion" class="form-label">Descripcion</label>
+        <textarea class="form-control" id="descripcion" th:field="*{descripcion}" rows="3" placeholder="Ingrese la descripción de la tarea"></textarea>
     </div>
     <div class="mb-3">
         <label for="estado" class="form-label">Estado</label>
         <select class="form-control" id="estado" th:field="*{estado}">
-            <option value="Por hacer" >Por hacer</option>
-            <option value="En progreso" >En progreso</option>
-            <option value="Completada" >Completada</option>
+            <option value="Por hacer">Por hacer</option>
+            <option value="En progreso">En progreso</option>
+            <option value="Completada">Completada</option>
         </select>
     </div>
-    <div class="mb-3"></div>
+    <div class="mb-3">
         <label for="fechaInicio" class="form-label">Fecha de Inicio</label>
         <input type="date" class="form-control" id="fechaInicio" th:field="*{fechaCreacion}">
     </div>

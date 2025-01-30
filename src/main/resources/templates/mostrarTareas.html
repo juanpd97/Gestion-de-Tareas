@@ -1,0 +1,32 @@
+    <div class="container mt-5">
+        <h1 class="mb-4">Lista de Tareas</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Descripción</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Fecha de Vencimiento</th>
+                    <th>Estado</th>
+                    <th>opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr th:each="tarea : ${listaTareas}">
+                <td th:text="${tarea.id}"></td>
+                <td th:text="${tarea.titulo}"></td>
+                <td th:text="${tarea.descripcion}"></td>
+                <td th:text="${tarea.fechaCreacion}"></td>
+                <td th:text="${tarea.fechaVencimiento}"></td>
+                <td th:text="${tarea.estado}"></td>
+                <td>
+                    <p>editar/eliminar</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

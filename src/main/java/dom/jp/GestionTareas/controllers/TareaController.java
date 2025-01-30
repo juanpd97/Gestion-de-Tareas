@@ -1,5 +1,7 @@
 package dom.jp.GestionTareas.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +32,9 @@ public class TareaController {
         
         Tarea nuevaTarea = new Tarea();
         model.addAttribute("nuevaTarea", nuevaTarea);
+
+        List<Tarea> listaTareas = repo.buscarTodasLasTareas();
+        model.addAttribute("listaTareas", listaTareas);
 
         return "index";
     }
