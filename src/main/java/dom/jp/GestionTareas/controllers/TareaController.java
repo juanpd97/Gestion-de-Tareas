@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+//import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 import dom.jp.GestionTareas.models.Tarea;
 import dom.jp.GestionTareas.services.TareaServiceImpl;
