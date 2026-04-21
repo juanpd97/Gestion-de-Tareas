@@ -1,33 +1,43 @@
-    <div class="container mt-5">
-        <h1 class="mb-4">Lista de Tareas</h1>
-        <table class="table table-striped">
+<section class="section-card">
+    <h2 class="section-title">Lista de tareas</h2>
+
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Título</th>
                     <th>Descripción</th>
-                    <th>Fecha de Inicio</th>
-                    <th>Fecha de Vencimiento</th>
+                    <th>Inicio</th>
+                    <th>Vencimiento</th>
                     <th>Estado</th>
-                    <th>opciones</th>
+                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
             <tr th:each="tarea : ${listaTareas}">
                 <td th:text="${tarea.id}"></td>
-                <td th:text="${tarea.titulo}"></td>
+                <td class="fw-semibold" th:text="${tarea.titulo}"></td>
                 <td th:text="${tarea.descripcion}"></td>
                 <td th:text="${tarea.fechaCreacion}"></td>
                 <td th:text="${tarea.fechaVencimiento}"></td>
-                <td th:text="${tarea.estado}"></td>
                 <td>
-                    <a th:href="@{'/tarea/editar/' + ${tarea.id}}">editar</a>
-                    <a th:href="@{'/tarea/eliminar/' + ${tarea.id}}">eliminar</a>
+                    <span class="badge badge-estado"
+                          th:classappend="${tarea.estado == 'Completada'} ? ' text-bg-success' : (${tarea.estado == 'En progreso'} ? ' text-bg-warning' : ' text-bg-secondary')"
+                          th:text="${tarea.estado}">
+                    </span>
                 </td>
+                <td>
+                    <div class="actions">
+                        <a class="btn btn-sm btn-outline-primary" th:href="@{'/tarea/editar/' + ${tarea.id}}">Editar</a>
+                        <a class="btn btn-sm btn-outline-danger" th:href="@{'/tarea/eliminar/' + ${tarea.id}}">Eliminar</a>
+                    </div>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(listaTareas)}">
+                <td colspan="7" class="text-center text-muted py-4">No hay tareas creadas todavía.</td>
             </tr>
             </tbody>
         </table>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</section>
