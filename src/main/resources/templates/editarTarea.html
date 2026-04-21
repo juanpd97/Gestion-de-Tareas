@@ -6,7 +6,8 @@
     
     <div class="mb-3">
         <label for="titulo" class="form-label">Titulo</label>
-        <input type="text" class="form-control" id="titulo" th:field="*{titulo}">
+        <input type="text" class="form-control" id="titulo" th:field="*{titulo}" th:classappend="${#fields.hasErrors('titulo')} ? 'is-invalid'">
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
     </div>
     <div class="mb-3">
         <label for="descripcion" class="form-label">Descripcion</label>
@@ -20,14 +21,18 @@
             <option value="Completada">Completada</option>
         </select>
     </div>
+
     <div class="mb-3">
         <label for="fechaInicio" class="form-label">Fecha de Inicio</label>
-        <input type="date" class="form-control" id="fechaInicio" th:field="*{fechaCreacion}">
+        <input type="date" class="form-control" id="fechaInicio" th:field="*{fechaCreacion}" th:classappend="${#fields.hasErrors('fechaCreacion')} ? 'is-invalid'">
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('fechaCreacion')}" th:errors="*{fechaCreacion}"></div>
     </div>
     <div class="mb-3">
         <label for="fechaVencimiento" class="form-label">Fecha de vencimiento</label>
-        <input type="date" class="form-control" id="fechaVencimiento" th:field="*{fechaVencimiento}">
+        <input type="date" class="form-control" id="fechaVencimiento" th:field="*{fechaVencimiento}" th:classappend="${#fields.hasErrors('fechaVencimientoPosterior')} ? 'is-invalid'">
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('fechaVencimientoPosterior')}" th:errors="*{fechaVencimientoPosterior}"></div>
     </div>
+
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
