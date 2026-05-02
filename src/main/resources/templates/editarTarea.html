@@ -10,11 +10,6 @@
             <input type="hidden" th:field="*{id}">
 
             <div class="mb-3">
-        <form th:action="@{/tarea/editar}" th:object="${tarea}" method="post" class="section-card">
-            <h2 class="section-title">Editar tarea</h2>
-            <input type="hidden" th:field="*{id}">
-
-            <div class="mb-3">
                 <label for="titulo" class="form-label">Título</label>
                 <input type="text" class="form-control" id="titulo" th:field="*{titulo}" th:classappend="${#fields.hasErrors('titulo')} ? 'is-invalid'">
                 <div class="invalid-feedback" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
@@ -49,10 +44,6 @@
             </div>
 
             <div class="mt-4 d-flex justify-content-between">
-                <a href="/" class="btn btn-outline-secondary">Volver</a>
-                <button type="submit" class="btn btn-primary px-4">Guardar cambios</button>
-            </div>
-        </form>
                 <a href="/" class="btn btn-outline-secondary">Volver</a>
                 <button type="submit" class="btn btn-primary px-4">Guardar cambios</button>
             </div>
